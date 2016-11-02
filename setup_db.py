@@ -31,8 +31,8 @@ c.execute("""CREATE TABLE Task(
 				datetimecreated TIMESTAMP NOT NULL DEFAULT (strftime('%s','now')),
 				datecompleted TIMESTAMP,
 				completed INTEGER NOT NULL DEFAULT 0,
-				sectionid INTEGER REFERENCES Section(id) 
-					ON DELETE CASCADE ON UPDATE CASCADE);
+				sectionid INTEGER,
+				FOREIGN KEY(sectionid) REFERENCES Section(id) ON DELETE CASCADE ON UPDATE CASCADE);
 """)
 
 # # Populates tables with some boring data
